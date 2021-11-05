@@ -18,19 +18,12 @@ mongoose
   })
   .catch(e => console.log(e))
 
-//Para salvar usuários
 const session = require('express-session')
-//Para salvar as sessões em DB
 const MongoStore = require('connect-mongo')
-//Para mensagens autodestrutivas
 const flash = require('connect-flash')
-//Para fazer os caminhos e rotas da aplicação
 const routes = require('./routes')
-//Para routas/caminhos absolutos
 const path = require('path')
-//Configuração de segurança
 // const helmet = require('helmet')
-//Tokens de formularios para segurança
 const csrf = require('csurf')
 const {
   middlewareGlobal,
@@ -38,9 +31,7 @@ const {
   csrfMiddleware
 } = require('./src/middlewares/middleware')
 
-//permite formulario ara dentro da aplicação
 app.use(express.urlencoded({ extended: true }))
-//formulários json
 app.use(express.json())
 //Permite acesso direto ao public
 app.use(express.static(path.resolve(__dirname, 'public')))
